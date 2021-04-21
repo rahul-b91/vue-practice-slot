@@ -1,19 +1,42 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- <HelloWorld /> -->
+
+    <child-component></child-component>
+    <hr />
+
+    <child-component>
+      <p>This is injected content from the parent component.</p>
+      <p>It can still bind to data in the parent's scope: {{ myVariable }}</p>
+    </child-component>
+    <hr />
+
+    <child-component>
+      <template v-slot:second>
+        <h1>child second</h1>
+      </template>
+    </child-component>
+
+    <hr />
+    <child-component>
+      <template v-slot:third>
+        <h1>child third</h1>
+      </template>
+    </child-component>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from "./components/HelloWorld.vue";
+import ChildComponent from "./components/ChildComponent";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    // HelloWorld,
+    ChildComponent,
+  },
+};
 </script>
 
 <style>
